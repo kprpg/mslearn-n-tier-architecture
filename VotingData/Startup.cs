@@ -25,6 +25,7 @@ namespace VotingData
 
             var connection = Configuration.GetValue<string>("ConnectionStrings:SqlDbConnection");
             services.AddDbContext<VotingDBContext>(options => options.UseSqlServer(connection));
+            services.AddApplicationInsightsTelemetry(Configuration["APPINSIGHTS_CONNECTIONSTRING"]);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
